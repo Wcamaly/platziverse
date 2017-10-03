@@ -1,0 +1,38 @@
+{
+  "name": "platziverse-db",
+  "version": "1.0.0",
+  "description": "a simple IoT Platform - DB Module",
+  "main": "index.js",
+  "scripts": {
+    "setup": "SET DEBUG=platziverse:* && node setup.js",
+    "lint": "standard",
+    "test": "SET DEBUG=platziverse:* && nyc --reporter=lcov ava tests/ --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrTater/platziverse.git"
+  },
+  "author": "walter Camaly <walter.camaly@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrTater/platziverse/issues"
+  },
+  "homepage": "https://github.com/mrTater/platziverse#readme",
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "nyc": "^11.2.1",
+    "proxyquire": "^1.8.0",
+    "sinon": "^4.0.0",
+    "sqlite3": "^3.1.13",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "debug": "^3.1.0",
+    "defaults": "^1.0.3",
+    "inquirer": "^3.3.0",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.13.2"
+  }
+}
