@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "SET DEBUG=platziverse:* && node setup.js",
+    "authoSetup": "SET DEBUG=platziverse:* && node setup.js --yes",
     "lint": "standard",
     "test": "SET DEBUG=platziverse:* && nyc --reporter=lcov ava tests/ --verbose"
   },

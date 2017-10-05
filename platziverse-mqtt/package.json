@@ -1,0 +1,30 @@
+{
+  "name": "platziverse-mqtt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "a Simple IoT platform - MQTT Server",
+  "main": "server.js",
+  "scripts": {
+    "lint": "standard",
+    "start-dev": "DEBUG=platziverse:* && nodemon server.js",
+    "start": "NODE_ENV=production && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrTater/platziverse.git"
+  },
+  "author": "Walter Camaly <walter.camaly@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrTater/platziverse/issues"
+  },
+  "homepage": "https://github.com/mrTater/platziverse#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.1",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "mosca": "^2.5.2"
+  }
+}

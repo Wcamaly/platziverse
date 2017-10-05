@@ -6,15 +6,20 @@ const db = require('./')
 const prompt = inquirer.createPromptModule()
 
 async function setup () {
-  const answer = await prompt([
-    {
-      type: 'confirm',
-      name: 'setup',
-      message: 'This will destroy your database, are you sure?'
+
+  let args = process.argv.filter(a => a.indexOf('--') != -1 || a.indexOf('-') )
+
+  if (args.findIndex('--yes') == -1 || args.findIndex('-y') == -1) {
+    const answer = await prompt([
+      {
+        type: 'confirm',
+        name: 'setup',
+        message: 'This will destroy your database, are you sure?'
+      }
+    ])
+    if (!answer.setup) {
+      return console.log('Nothing happend :)')
     }
-  ])
-  if (!answer.setup) {
-    return console.log('Nothing happend :)')
   }
   const config = {
     database: process.env.DB_NAME || 'platziverse',
