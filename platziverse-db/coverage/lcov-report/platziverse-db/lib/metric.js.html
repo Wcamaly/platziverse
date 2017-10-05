@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for platziverse-db/lib/agent.js</title>
+    <title>Code coverage report for platziverse-db/lib/metric.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">platziverse-db/lib</a> agent.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">platziverse-db/lib</a> metric.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/7</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/14</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
   </div>
@@ -99,11 +99,7 @@
 54
 55
 56
-57
-58
-59
-60
-61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+57</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,30 +107,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,7 +125,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,67 +155,60 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'uses stric'
 &nbsp;
-module.exports = function setupAgent (AgentModel) {
-  function findById (id) {
-    return AgentModel.findById(id)
-  }
-&nbsp;
-  async function createOrUpdate (agent) {
-    const cond = {
-      where: {
-        uuid: agent.uuid
-      }
-    }
-    const existingAgent = await AgentModel.findOne(cond)
-    if (existingAgent) {
-      const update = await AgentModel.update(agent, cond)
-      return update ? AgentModel.findOne(cond) : <span class="branch-1 cbranch-no" title="branch not covered" >existingAgent</span>
-    }
-    const result = await AgentModel.create(agent)
-    return result.toJSON()
-  }
-&nbsp;
-  function findByUuid (uuid) {
-    return AgentModel.findOne({
+module.exports = function setupMetric (MetricModel, AgentModel) {
+  async function create (uuid, metric) {
+    const agent = await AgentModel.findOne({
       where: {
         uuid
       }
     })
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (agent) {
+      Object.assign(metric, {agentId: agent.id})
+      const result = await MetricModel.create(metric)
+      return result.toJSON()
+    }
   }
 &nbsp;
-  function findAll () {
-    return AgentModel.findAll()
-  }
-&nbsp;
-  function findByUsername (username) {
-    return AgentModel.findAll({
-      where: {
-        username,
-        connected: true
-      }
+  async function findByAgentUuid (uuid) {
+    return MetricModel.findAll({
+      attributes: ['type'],
+      gourp: ['type'],
+      include: [{
+        model: AgentModel,
+        attributes: [],
+        where: {
+          uuid
+        }
+      }],
+      raw: true
     })
   }
 &nbsp;
-  function findConnected () {
-    return AgentModel.findAll({
+  async function findByTypeAgentUuid (type, uuid) {
+    return MetricModel.findAll({
+      attributes: ['id', 'type', 'value', 'createdAt'],
       where: {
-        connected: true
-      }
+        type
+      },
+      limit: 20,
+      order: [['createdAt', 'DESC']],
+      include: {
+        model: AgentModel,
+        attributes: [],
+        where: {
+          uuid
+        }
+      },
+      raw: true
     })
   }
 &nbsp;
   return {
-    findById,
-    createOrUpdate,
-    findByUuid,
-    findAll,
-    findByUsername,
-    findConnected
+    create,
+    findByAgentUuid,
+    findByTypeAgentUuid
   }
 }
 &nbsp;</pre></td></tr>

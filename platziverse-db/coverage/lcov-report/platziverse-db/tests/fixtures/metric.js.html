@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for platziverse-db/models/agent.js</title>
+    <title>Code coverage report for platziverse-db/tests/fixtures/metric.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="..\..\prettify.css" />
-    <link rel="stylesheet" href="..\..\base.css" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(..\..\sort-arrow-sprite.png);
+            background-image: url(..\..\..\sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -16,32 +16,32 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">platziverse-db/models</a> agent.js
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">platziverse-db/tests/fixtures</a> metric.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">92.86% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>13/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -76,18 +76,16 @@
 31
 32
 33
-34
-35
-36</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+34</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -99,54 +97,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">96x</span>
+<span class="cline-any cline-yes">60x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">96x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
+const agentFixture = require('./agent')
+const metric = {
+  type: 'web',
+  value: '134',
+  agentId: agentFixture.single.id,
+  createdAt: new Date()
+}
 &nbsp;
-const Sequelize = require('sequelize')
-const setupDatabase = require('../lib/db')
+const metrics = [
+  metric,
+  extend(metric, {type: 'app'}),
+  extend(metric, {agentId: 2}),
+  extend(metric, {value: '128'}),
+  extend(metric, {type: 'app', value: '130', agentId: 2}),
+  extend(metric, {type: 'app', agentId: 2}),
+  extend(metric, {type: 'soap'}),
+  extend(metric, {type: 'casa'})
+]
 &nbsp;
-module.exports = function <span class="fstat-no" title="function not covered" >setupAgentModel </span>(config) {
-  const sequelize = <span class="cstat-no" title="statement not covered" >setupDatabase(config)</span>
-<span class="cstat-no" title="statement not covered" >  return sequelize.define('agent', {</span>
-    uuid: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    username: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    name: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    hostname: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    pid: {
-      type: Sequelize.INTEGER,
-      allowNull: false
-    },
-    connected: {
-      type: Sequelize.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
-    }
-  })
+function extend (obj, values) {
+  const clone = Object.assign({}, obj)
+  return Object.assign(clone, values)
+}
+module.exports = {
+  single: metric,
+  all: metrics,
+  findUuid: uuid =&gt; {
+    let types = metrics.filter(m =&gt; m.agentId === agentFixture.byUuid(uuid).id).map((item, i) =&gt; item.type)
+    return types.filter((elem, pos) =&gt; types.indexOf(elem) === pos)
+  },
+  findTypeAgentUuid: (type, uuid) =&gt; metrics.filter(m =&gt; m.type === type &amp;&amp; m.agentId === agentFixture.byUuid(uuid).id).sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >new Date(b.date) - new Date(a.date))</span>
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -157,7 +151,7 @@ module.exports = function <span class="fstat-no" title="function not covered" >s
   generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Oct 05 2017 14:20:01 GMT-0300 (Hora estándar de Argentina)
 </div>
 </div>
-<script src="..\..\prettify.js"></script>
+<script src="..\..\..\prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -165,6 +159,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="..\..\sorter.js"></script>
+<script src="..\..\..\sorter.js"></script>
 </body>
 </html>
