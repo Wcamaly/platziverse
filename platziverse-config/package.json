@@ -3,9 +3,7 @@
   "version": "1.0.1",
   "description": "Configuración para IoT",
   "main": "index.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrTater/platziverse.git"

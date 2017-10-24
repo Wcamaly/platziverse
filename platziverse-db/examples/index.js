@@ -11,11 +11,9 @@ async function run () {
   }
 
   const {Agent, Metric} = await db(config).catch(handlerFatalError)
-
-
   const agent = await Agent.createOrUpdate({
     uuid: 'xxx',
-    name:'test',
+    name: 'test',
     username: 'test',
     hostname: 'test',
     pid: 1,
@@ -30,7 +28,7 @@ async function run () {
   console.log('-- findAll --')
   console.log(agents)
   const metric = await Metric.create(agent.uuid, {
-    type:'memory',
+    type: 'memory',
     value: '300'
   })
   console.log('-- Metric --')
@@ -40,12 +38,11 @@ async function run () {
   console.log('-- Metrics uuid --')
   console.log(metrics)
 
-  const typeAgentUuid = await Metric.findByTypeAgentUuid('memory',agent.uuid).catch(handlerFatalError)
+  const typeAgentUuid = await Metric.findByTypeAgentUuid('memory', agent.uuid).catch(handlerFatalError)
   console.log('-- Metrics findByTypeAgentUuid --')
   console.log(typeAgentUuid)
-
 }
-function handlerFatalError(err) {
+function handlerFatalError (err) {
   console.error(err.message)
   console.error(err.stack)
   process.exit(1)

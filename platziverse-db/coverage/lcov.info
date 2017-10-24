@@ -1,5 +1,5 @@
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\index.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/index.js
 FN:12,(anonymous_0)
 FNF:1
 FNH:1
@@ -31,7 +31,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\lib\agent.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/lib/agent.js
 FN:3,setupAgent
 FN:4,findById
 FN:8,createOrUpdate
@@ -72,7 +72,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\lib\db.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/lib/db.js
 FN:6,setupDatabase
 FNF:1
 FNH:1
@@ -91,7 +91,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\lib\metric.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/lib/metric.js
 FN:3,setupMetric
 FN:4,create
 FN:17,findByAgentUuid
@@ -119,7 +119,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\models\agent.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/models/agent.js
 FN:6,setupAgentModel
 FNF:1
 FNH:0
@@ -135,7 +135,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\models\metric.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/models/metric.js
 FN:6,setupMetricModel
 FNF:1
 FNH:0
@@ -151,7 +151,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\tests\agent-test.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/tests/agent-test.js
 FN:20,(anonymous_4)
 FN:40,(anonymous_5)
 FN:78,(anonymous_6)
@@ -288,7 +288,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\tests\metric-test.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/tests/metric-test.js
 FN:21,(anonymous_4)
 FN:57,(anonymous_5)
 FN:87,(anonymous_6)
@@ -384,7 +384,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\tests\fixtures\agent.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/tests/fixtures/agent.js
 FN:21,extend
 FN:28,(anonymous_1)
 FN:29,(anonymous_2)
@@ -416,7 +416,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\ProjectNode\Platzi\platziverse\platziverse-db\tests\fixtures\metric.js
+SF:/home/wally/proyectos/platziverse/platziverse-db/tests/fixtures/metric.js
 FN:21,extend
 FN:28,(anonymous_1)
 FN:29,(anonymous_2)
