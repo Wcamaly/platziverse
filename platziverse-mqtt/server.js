@@ -29,8 +29,32 @@ server.on('clientConnected', client => {
   debug(`Client Connected: ${client.id}`)
   clients.set(client.id, null)
 })
-server.on('clientDisconnected', client => {
+server.on('clientDisconnected', async client => {
   debug(`Client Disconnected ${client.id}`)
+  const agent = clients.get(client.id)
+
+  if (agent) {
+    // Mark Agent as Disconnected
+    agent.connected = false
+    try {
+      await Agent.createOrUpdate(agent)
+    } catch (e) {
+      return handlerError(e)
+    }
+    // Delete Agent form Clients List
+    clients.delete(client.id)
+
+    server.publich({
+      topic: 'agent/disconnected',
+      payload: JSON.stringify({
+        agent: {
+          uuid: agent.uuid
+        }
+      })
+    })
+
+    debug(`Client ${client.id} associad to Agent ${agent.uuid} marked as disconnected`)
+  }
 })
 
 server.on('published', async (packet, client) => {
@@ -43,8 +67,9 @@ server.on('published', async (packet, client) => {
       break
     case 'agent/message':
       debug(`Payload: ${packet.payload}`)
-      console.log('aaaaaaaaaaa')
+      
       const payload = parsePayload(packet.payload)
+
       if (payload) {
         payload.agent.connected = true
 
@@ -75,16 +100,27 @@ server.on('published', async (packet, client) => {
         }
 
         // Stroe Metrics
+        
+        console.log ('Metric', payload.metrics)
+        for (let i=0; i < payload.metrics.length ; i++ ) {
+          Metric.create(agent.uuid,payload.metrics[i] ).then(function (res) {
+            debug(`Metric ${res.id} saved on agent ${agent.uuid}`)
+          }).catch(function(e) {
+            return handlerError(e)
+          })
+        }
+
+        /*
+         code tutorial
         for (let metric of payload.metrics) {
           let m
           try {
-            m = await Metric.creat(agent.uuid, metric)
-          }catch (e) {
+            m = await Metric.create(agent.uuid, metric)
+          } catch (e) {
             return handlerError(e)
           }
           debug(`Metric ${m.id} saved on agent ${agent.uuid}`)
-        }
-
+        }*/
       }
       break
   }
