@@ -29,10 +29,11 @@ agent.on('message', handler)
 
   // Other Agents
 agent.on('agent/connected', handler)
-agent.on('agent/disconnected', handler)
+
 agent.on('agent/message', payload => {
   console.log(payload)
 })
+agent.on('agent/disconnected', handler)
 
 function handler (payload) {
   console.log(payload)

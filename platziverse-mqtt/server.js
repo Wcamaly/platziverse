@@ -75,8 +75,10 @@ server.on('published', async (packet, client) => {
 
         let agent
         try {
+          console.log('PAYLOAD', JSON.stringify(payload.agent))
           agent = await Agent.createOrUpdate(payload.agent)
         } catch (e) {
+          console.log(`${chalk.red('[Error]')} Agent`)
           return handlerError(e)
         }
 
@@ -101,7 +103,7 @@ server.on('published', async (packet, client) => {
 
         // Stroe Metrics
         
-        for (let i=0; i < payload.metrics.length ; i++ ) {
+        /*for (let i=0; i < payload.metrics.length ; i++ ) {
           Metric.create(agent.uuid,payload.metrics[i] ).then(function (res) {
             debug(`Metric ${res.id} saved on agent ${agent.uuid}`)
           }).catch(function(e) {
@@ -109,17 +111,18 @@ server.on('published', async (packet, client) => {
           })
         }
 
-        /*
-         code tutorial
+        */
+         //code tutorial
         for (let metric of payload.metrics) {
           let m
           try {
             m = await Metric.create(agent.uuid, metric)
           } catch (e) {
+            console.log(`${chalk.red('[Error]')} Metric`)
             return handlerError(e)
           }
           debug(`Metric ${m.id} saved on agent ${agent.uuid}`)
-        }*/
+        }
       }
       break
   }
@@ -142,7 +145,7 @@ function handlerFatalError (err) {
 }
 
 function handlerError (err) {
-  console.log(`${chalk.red('[fatal error]')} ${err.message}`)
+  console.log(`${chalk.red('[Error]')} ${err.message}`)
   console.log(err.stack)
 }
 
