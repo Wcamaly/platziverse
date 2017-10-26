@@ -101,7 +101,6 @@ server.on('published', async (packet, client) => {
 
         // Stroe Metrics
         
-        console.log ('Metric', payload.metrics)
         for (let i=0; i < payload.metrics.length ; i++ ) {
           Metric.create(agent.uuid,payload.metrics[i] ).then(function (res) {
             debug(`Metric ${res.id} saved on agent ${agent.uuid}`)
