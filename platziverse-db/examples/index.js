@@ -23,6 +23,18 @@ async function run () {
   console.log('-- Agent --')
   console.log(agent)
 
+  const agent2 = await Agent.createOrUpdate({
+    uuid: 'xxx',
+    name: 'test',
+    username: 'name',
+    hostname: 'test',
+    pid: 1,
+    connected: true
+  }).catch(handlerFatalError)
+
+  console.log('-- Agent --')
+  console.log(agent2)
+
   const agents = await Agent.findAll().catch(handlerFatalError)
 
   console.log('-- findAll --')

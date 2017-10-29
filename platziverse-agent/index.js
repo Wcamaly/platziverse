@@ -51,7 +51,7 @@ class PlatziverseAgent extends EventEmitter {
       this._client.on('connect', () => {
         this._agentId = uuid.v4()
 
-        this.emit('connect', this._agentId)
+        this.emit('connected', this._agentId)
 
         this._timer = setInterval(async () => {
           if (this._metrics.size > 0) {
@@ -62,7 +62,6 @@ class PlatziverseAgent extends EventEmitter {
                 name: opts.name,
                 hostname: os.hostname() || 'localhost',
                 pid: process.pid
-
               },
               metrics: [],
               timestamp: new Date().getTime()
@@ -82,7 +81,7 @@ class PlatziverseAgent extends EventEmitter {
             this._client.publish('agent/message', JSON.stringify(message))
             this.emit('message', message)
           }
-        }, opts.internal)
+        }, opts.interval)
       })
 
       this._client.on('message', (topic, payload) => {
@@ -110,7 +109,7 @@ class PlatziverseAgent extends EventEmitter {
     if (this._started) {
       clearInterval(this._timer)
       this._started = false
-      this.emit('disconnect', this._agentId)
+      this.emit('disconnected', this._agentId)
       this._client.end()
     }
   }

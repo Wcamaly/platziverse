@@ -1,9 +1,7 @@
 'use strict'
 
 module.exports = function setupAgent (AgentModel) {
-  function findById (id) {
-    return AgentModel.findById(id)
-  }
+  
 
   async function createOrUpdate (agent) {
     const cond = {
@@ -12,16 +10,20 @@ module.exports = function setupAgent (AgentModel) {
       }
     }
     const existingAgent = await AgentModel.findOne(cond)
-    console.log(`Exist ${agent.uuid} ${existingAgent}`)
+    
     if (existingAgent) {
       const update = await AgentModel.update(agent, cond)
-      console.log(`UPDATE ${agent.uuid} ${update}`)
+      
 
       return update ? AgentModel.findOne(cond) : existingAgent
     }
     const result = await AgentModel.create(agent)
-    console.log(`UPDATE ${agent.uuid} ${result.toJSON()}`)
+    
     return result.toJSON()
+  }
+
+  function findById (id) {
+    return AgentModel.findById(id)
   }
 
   function findByUuid (uuid) {

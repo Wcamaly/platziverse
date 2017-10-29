@@ -31,20 +31,22 @@ server.on('clientConnected', client => {
 })
 server.on('clientDisconnected', async client => {
   debug(`Client Disconnected ${client.id}`)
+
   const agent = clients.get(client.id)
 
   if (agent) {
     // Mark Agent as Disconnected
     agent.connected = false
     try {
-      await Agent.createOrUpdate(agent)
+      
+      let a = await Agent.createOrUpdate(agent)
     } catch (e) {
       return handlerError(e)
     }
     // Delete Agent form Clients List
     clients.delete(client.id)
 
-    server.publich({
+    server.publish({
       topic: 'agent/disconnected',
       payload: JSON.stringify({
         agent: {
@@ -61,8 +63,8 @@ server.on('published', async (packet, client) => {
   debug(`Received: ${packet.topic}`)
 
   switch (packet.topic) {
-    case 'agente/connected':
-    case 'agente/disconnected':
+    case 'agent/connected':
+    case 'agent/disconnected':
       debug(`Payload: ${packet.payload}`)
       break
     case 'agent/message':
@@ -75,10 +77,9 @@ server.on('published', async (packet, client) => {
 
         let agent
         try {
-          console.log('PAYLOAD', JSON.stringify(payload.agent))
           agent = await Agent.createOrUpdate(payload.agent)
         } catch (e) {
-          console.log(`${chalk.red('[Error]')} Agent`)
+          
           return handlerError(e)
         }
 
@@ -86,7 +87,7 @@ server.on('published', async (packet, client) => {
 
           // Notify Agent is connected
         if (!clients.get(client.id)) {
-          clients.set(client.id)
+          clients.set(client.id,agent)
           server.publish({
             topic: 'agent/connected',
             payload: JSON.stringify({
@@ -103,7 +104,7 @@ server.on('published', async (packet, client) => {
 
         // Stroe Metrics
         
-        /*for (let i=0; i < payload.metrics.length ; i++ ) {
+        for (let i=0; i < payload.metrics.length ; i++ ) {
           Metric.create(agent.uuid,payload.metrics[i] ).then(function (res) {
             debug(`Metric ${res.id} saved on agent ${agent.uuid}`)
           }).catch(function(e) {
@@ -111,18 +112,18 @@ server.on('published', async (packet, client) => {
           })
         }
 
-        */
+        
          //code tutorial
+        /*
         for (let metric of payload.metrics) {
           let m
           try {
             m = await Metric.create(agent.uuid, metric)
           } catch (e) {
-            console.log(`${chalk.red('[Error]')} Metric`)
             return handlerError(e)
           }
           debug(`Metric ${m.id} saved on agent ${agent.uuid}`)
-        }
+        }*/
       }
       break
   }

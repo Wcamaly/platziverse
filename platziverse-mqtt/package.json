@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "lint": "standard",
-    "start-dev": "DEBUG=platziverse:*>log-file.log nodemon server.js",
+    "start-dev": "DEBUG=platziverse:* nodemon server.js",
     "start": "NODE_ENV=production node server.js"
   },
   "repository": {
