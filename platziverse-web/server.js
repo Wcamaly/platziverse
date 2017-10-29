@@ -6,15 +6,36 @@ const chalk = require('chalk')
 const path = require('path')
 const socketio = require('socket.io')
 const PlatziverseAgent = require('platziverse-agent')
+const proxy = require('./proxy')
+const asyncify = require('express-asyncify')
 
 const port = process.env.PORT || 8080
-const app = express()
+const app = asyncify(express())
 const server = http.createServer(app)
 const io = socketio(server)
 const agent = new PlatziverseAgent()
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use('/', proxy)
+
+// Express Errro Handler
+app.use((err, req, res, next) => {
+  debug(`Errro: ${err.message}`)
+  if (err.message.match(/not found/)) {
+    return res.status(404).send({error: err.message})
+  }
+
+  if (err.message.match(/not authorized/) || err.message.match(/authorization token/)) {
+    return res.status(401).send({error: err.message})
+  }
+
+  if (err.message.match(/Permission denied/)) {
+    return res.status(403).send({error: err.message})
+  }
+
+  res.status(500).send({error: err.message})
+})
 
 // SOcketIO
 io.on('connection', socket => {
