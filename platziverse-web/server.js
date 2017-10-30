@@ -46,11 +46,11 @@ io.on('connection', socket => {
   })
 
   agent.on('agent/connected', payload => {
-    socket.emit('agent/connect', payload)
+    socket.emit('agent/connected', payload)
   })
 
   agent.on('agent/disconnected', payload => {
-    socket.emit('agent/disconnect', payload)
+    socket.emit('agent/disconnected', payload)
   })
 })
 

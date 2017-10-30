@@ -6,6 +6,8 @@ const request = require('request-promise-native')
 const {endpoint, apiToken} = require('platziverse-config').proxyConfig()
 
 const api = asyncify(express.Router())
+console.log('ENDOPOINT' , endpoint)
+console.log('TOKEN' , apiToken)
 
 api.get('/agents', async (req, res, next) => {
   const options = {
