@@ -1,0 +1,20 @@
+{
+  "name": "platziverse-config",
+  "version": "1.0.1",
+  "description": "Configuración para IoT",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrTater/platziverse.git"
+  },
+  "author": "walter Camaly <walter.camaly@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrTater/platziverse/issues"
+  },
+  "homepage": "https://github.com/mrTater/platziverse#readme",
+  "dependencies": {
+    "debug": "^3.1.0"
+  }
+}

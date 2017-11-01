@@ -1,0 +1,6 @@
+---
+dependencies: 
+  - { role: node }
+  - { role: platziverse-config}
+  - { role: platziverse-db}
+  

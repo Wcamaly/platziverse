@@ -1,0 +1,7 @@
+---
+dependencies: 
+  - { role: node }
+  - { role: jsauphant.nginx }
+  - { role: platziverse-config}
+  - { role: platziverse-db}
+  

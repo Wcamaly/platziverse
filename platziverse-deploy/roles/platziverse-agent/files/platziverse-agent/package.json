@@ -1,0 +1,26 @@
+{
+  "name": "platziverse-agent",
+  "version": "1.0.0",
+  "description": "a Simple IoT platform - Agent",
+  "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrTater/platziverse.git"
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "walter camaly <waltercamaly@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "defaults": "^1.0.3",
+    "mqtt": "^2.13.1",
+    "uuid": "^3.1.0"
+  }
+}
