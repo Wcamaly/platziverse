@@ -28,6 +28,7 @@ const LineChart = require('./line-chart')
 const request = require('request-promise-native')
 const moment = require('moment')
 const randomColor = require('random-material-color')
+const { serverHost } = require('platziverse-config').proxyConfig()
 
 module.exports = {
   name: 'metric',
@@ -56,7 +57,7 @@ module.exports = {
 
       const options = {
         method: 'GET',
-        url : `http://localhost:8080/metrics/${uuid}/${type}`,
+        url : `${serverHost}/metrics/${uuid}/${type}`,
         json: true
       }
 

@@ -7,7 +7,8 @@ const prompt = inquirer.createPromptModule()
 
 async function setup () {
   let args = process.argv.filter(a => a.indexOf('--yes') !== -1 || a.indexOf('-y') !== -1)
-  if (args.length > 1) {
+  console.log(process.argv)
+  if (args.length === 0 ) {
     const answer = await prompt([
       {
         type: 'confirm',

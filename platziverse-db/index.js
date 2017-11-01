@@ -1,5 +1,9 @@
 'use strict'
 
+if (process.env.NODE_ENV)
+require('longjhon')
+
+
 const setupDatabase = require('./lib/db')
 const setupAgentModel = require('./models/agent')
 const setupMetricModel = require('./models/metric')

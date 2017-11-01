@@ -57,7 +57,6 @@ io.on('connection', socket => {
 process.on('uncaughtException', handlerFatalError)
 process.on('unhandledRejection', handlerFatalError)
 
-
 server.listen(port, () => {
   console.log(`${chalk.green('[platziverse-web]')} server listening on port ${port}`)
   agent.connect()
